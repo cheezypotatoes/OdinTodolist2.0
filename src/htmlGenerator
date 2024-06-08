@@ -1,8 +1,20 @@
 const ListsDisplay = document.getElementById("ListsDisplay");
 
 function CreateTodoList(name) {
-    let TodoList = Object.assign(document.createElement("h1"), { innerHTML: name });
-    ListsDisplay.append(TodoList);
+    
+    let TodoList = document.createElement("div");
+    TodoList.className = "TodoList";
+    TodoList.appendChild(Object.assign(document.createElement("h1"), { innerText: name })); // Title
+
+    let configureList = Object.assign(document.createElement("button"), { innerText: "Configure", className: "ConfigureListButton" });
+    configureList.addEventListener("click", () =>{
+        console.log(name);
+    })
+
+    TodoList.append(configureList);
+    ListsDisplay.appendChild(TodoList);
+
+    
 }
 
 export {CreateTodoList};

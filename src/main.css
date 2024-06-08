@@ -36,8 +36,8 @@ html, body {
     box-sizing: border-box;
     text-align: center;
     overflow: hidden;
-    background-color: #F5F5F5; /* Light gray */
-    color: #333333; /* Dark gray text */
+    background-color: #2B4F68;
+    color: white; /* Dark gray text */
 }
 
 #ItemDisplay {
@@ -47,17 +47,18 @@ html, body {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: #FFFFFF; /* White */
+    background-color: #B0C4DE;
 }
 
 #ListsDisplay {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 30px;
     width: 100%;
     height: 100%;
     overflow: auto;
     background-color: #324A5F; /* Slightly lighter dark blue */
+    align-items: center;
 }
 
 /* Custom Scrollbar Styles */
@@ -111,6 +112,7 @@ html, body {
 
 #AddItem{
     background-color: #4CAF50;
+    color: #dfffd2;
 }
 
 #AddList:hover {
@@ -120,10 +122,25 @@ html, body {
 
 #AddList{
     background-color: #FF5252;
+    color: #FFCDD2;
 }
 
+.TodoList{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    height: 100%;
+    background-color: #6C8893;
+}
 
+.TodoList > :first-child {
+    justify-self: start; 
+    align-self: center; 
+}
 
+.TodoList > :nth-child(2) {
+    justify-self: end;
+}
 
 .form-container label {
     display: block;
@@ -136,4 +153,26 @@ html, body {
 * {
     scrollbar-width: thin;
     scrollbar-color: #2E3B4E #F5F5F5;
+}
+
+.ConfigureListButton {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: #7FA5C3;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    perspective: 1000px;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 16px;
+}
+
+.ConfigureListButton:hover {
+    background-color: #cea419; /* Hover color */
+    transform: scale(1.05);
 }
