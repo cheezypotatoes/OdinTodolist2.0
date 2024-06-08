@@ -1,0 +1,8 @@
+const ListsDisplay = document.getElementById("ListsDisplay");
+
+function CreateTodoList(name) {
+    let TodoList = Object.assign(document.createElement("h1"), { innerHTML: name });
+    ListsDisplay.append(TodoList);
+}
+
+export {CreateTodoList};

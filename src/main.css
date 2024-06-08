@@ -95,8 +95,6 @@ html, body {
 }
 
 .form-container button {
-    background-color: #4CAF50; /* Green */
-    color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -106,10 +104,26 @@ html, body {
     width: 100%;
 }
 
-.form-container button:hover {
-    background-color: #45a049; /* Darker green */
+#AddItem:hover {
+    background-color: #cea419; /* Hover color */
     transform: scale(1.05);
 }
+
+#AddItem{
+    background-color: #4CAF50;
+}
+
+#AddList:hover {
+    background-color: #cea419; /* Hover color */
+    transform: scale(1.05);
+}
+
+#AddList{
+    background-color: #FF5252;
+}
+
+
+
 
 .form-container label {
     display: block;
