@@ -1,5 +1,5 @@
 import "./main.css";
-import { CreateTodoList, PopUpWarning, IsEmpty, CreateLocalStorageTodoList} from "./barrel";
+import { CreateTodoList, PopUpWarning, IsEmpty, CreateLocalStorageTodoList, GenerateAllTodoList, printLocalStorage} from "./barrel";
 
 
 const ItemListInput = document.getElementById("itemInput")
@@ -12,7 +12,9 @@ function ButtonFunctionality(){
         let input = IsEmpty(ItemListInput.value); // Get input
         if (input){PopUpWarning("Cannot proceed (No Input For Item Name)");return} // Check if empty (returns if true)
         console.log("Good to go");
-        
+
+        // TODO: REMOVE AFTER
+        printLocalStorage();
     })
 
     // Add List Button
@@ -37,24 +39,11 @@ function ListSelected(ListName){
 
 function Bootstrap(){
     ButtonFunctionality();
+    GenerateAllTodoList();
 }
 
 Bootstrap();
 
-
-
-
-CreateTodoList("TESTING");
-CreateTodoList("TESTING2");
-CreateTodoList("TESTING3");
-CreateTodoList("TESTING4");
-CreateTodoList("TESTING5");
-CreateTodoList("TESTING6");
-CreateTodoList("TESTING7");
-CreateTodoList("TESTING8");
-CreateTodoList("TESTING9");
-CreateTodoList("TESTING10");
-CreateTodoList("TESTING11");
 
 export {ListSelected as ListSelected}
 

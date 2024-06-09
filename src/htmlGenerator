@@ -3,7 +3,6 @@ import { ListSelected } from "./barrel";
 const ListsDisplay = document.getElementById("ListsDisplay");
 
 function CreateTodoList(name) {
-    
     let TodoList = document.createElement("div");
     TodoList.className = "TodoList";
     TodoList.appendChild(Object.assign(document.createElement("h1"), { innerText: name , onclick: () => {ListSelected(name)}})); // Title
@@ -15,8 +14,18 @@ function CreateTodoList(name) {
 
     TodoList.append(configureList);
     ListsDisplay.appendChild(TodoList);
-
-    
 }
 
-export {CreateTodoList};
+function GenerateAllTodoList(){
+    for (let i = 0; i < localStorage.length; i++) {
+        // Weird solution to deal with object in local storage causes by extension
+        // Sorting by catching an error by trying to parse and get the related attribute
+        try {
+            let ListName = localStorage.key(i);
+            JSON.parse(localStorage.getItem(ListName)).TodoArray; // One line if statement causes error if not found
+            CreateTodoList(ListName);
+        } catch (error) {}  
+    }
+}
+
+export {CreateTodoList, GenerateAllTodoList};

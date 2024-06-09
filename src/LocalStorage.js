@@ -20,4 +20,4 @@ function printLocalStorage() {
     }
 }
 
-export {CreateLocalStorageTodoList}
+export {CreateLocalStorageTodoList, printLocalStorage}

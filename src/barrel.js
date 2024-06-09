@@ -1,11 +1,11 @@
-import { CreateTodoList } from "./htmlGenerator";
+import { CreateTodoList, GenerateAllTodoList } from "./htmlGenerator";
 import { PopUpWarning, IsEmpty } from "./utilities";
-import { CreateLocalStorageTodoList } from "./LocalStorage";
+import { CreateLocalStorageTodoList, printLocalStorage} from "./LocalStorage";
 import { ListSelected } from "./main";
 
 
 
-export {CreateTodoList}
+export {CreateTodoList, GenerateAllTodoList}
 export {PopUpWarning, IsEmpty}
-export {CreateLocalStorageTodoList}
+export {CreateLocalStorageTodoList, printLocalStorage}
 export {ListSelected}
