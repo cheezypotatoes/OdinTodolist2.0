@@ -1,14 +1,16 @@
+import { ListSelected } from "./barrel";
+
 const ListsDisplay = document.getElementById("ListsDisplay");
 
 function CreateTodoList(name) {
     
     let TodoList = document.createElement("div");
     TodoList.className = "TodoList";
-    TodoList.appendChild(Object.assign(document.createElement("h1"), { innerText: name })); // Title
+    TodoList.appendChild(Object.assign(document.createElement("h1"), { innerText: name , onclick: () => {ListSelected(name)}})); // Title
 
     let configureList = Object.assign(document.createElement("button"), { innerText: "Configure", className: "ConfigureListButton" });
     configureList.addEventListener("click", () =>{
-        console.log(name);
+        console.log("Configuration");
     })
 
     TodoList.append(configureList);

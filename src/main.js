@@ -3,6 +3,8 @@ import { CreateTodoList, PopUpWarning, IsEmpty, CreateLocalStorageTodoList} from
 
 
 const ItemListInput = document.getElementById("itemInput")
+let SelectionIdentifier = document.getElementById("SelectionIdentifier");
+let CurrentlySelectedListName = "";
 
 function ButtonFunctionality(){
     // Add Item
@@ -26,6 +28,13 @@ function ButtonFunctionality(){
     })
 }
 
+function ListSelected(ListName){
+    CurrentlySelectedListName = ListName; // A way to identify what it selected (used for later)
+    SelectionIdentifier.innerText = `Currently Selecting: ${ListName}`;
+    console.log(`SELECTED ${CurrentlySelectedListName}`)
+}
+
+
 function Bootstrap(){
     ButtonFunctionality();
 }
@@ -47,6 +56,6 @@ CreateTodoList("TESTING9");
 CreateTodoList("TESTING10");
 CreateTodoList("TESTING11");
 
-
+export {ListSelected as ListSelected}
 
 
