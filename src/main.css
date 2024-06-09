@@ -176,3 +176,8 @@ html, body {
     background-color: #cea419; /* Hover color */
     transform: scale(1.05);
 }
+
+.modal::backdrop{
+    background-color: rgba(197, 222, 242, 0.8);
+}
+

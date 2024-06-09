@@ -3,15 +3,25 @@
 <head>
     <title>TodoList</title>
 <script defer src="main.bundle.js"></script></head>
-<body>
+<body> 
+
+    <!-- Popup Warning (Called modal) -->
+    <dialog id="ModalDialogWarning" class="modal">
+        <h1 id="ModalWarningText">SAMPLE TEXT</h1>
+        <button id="ModalCloseButton">Close</button>
+    </dialog>
+
+
+
     <div id="Container">
+        <!-- Contains all list -->
         <div id="ListsContainer">
             <h1>Todo Lists</h1>
-            <div id="ListsDisplay">
-                
+            <div id="ListsDisplay">       
             </div>
         </div>
-
+        
+        <!-- Contains all items -->
         <div id="ItemsContainer">
             <h1>Items:</h1>
             <form class="form-container">
@@ -36,8 +46,8 @@
                 <h1>ITEM SAMPLE</h1>
                 <h1>ITEM SAMPLE</h1>
             </div>
-
         </div>
+
     </div>
 </body>
 </html>
