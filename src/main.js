@@ -1,24 +1,29 @@
 import "./main.css";
-import { CreateTodoList, PopUpWarning, IsEmpty } from "./barrel";
+import { CreateTodoList, PopUpWarning, IsEmpty, CreateLocalStorageTodoList} from "./barrel";
 
 
-let DialogModal = document.getElementById("ModalDialogWarning");
+const ItemListInput = document.getElementById("itemInput")
 
 function ButtonFunctionality(){
     // Add Item
     document.getElementById("AddItem").addEventListener("click", () =>{
-        let input = IsEmpty(document.getElementById("itemInput").value); // Get input
-        if (input){PopUpWarning(DialogModal, "Cannot proceed (No Input)");return} // Check if empty (returns if true)
+        let input = IsEmpty(ItemListInput.value); // Get input
+        if (input){PopUpWarning("Cannot proceed (No Input For Item Name)");return} // Check if empty (returns if true)
         console.log("Good to go");
         
     })
 
-    // CLose Modal Button
-    document.getElementById("ModalCloseButton").addEventListener("click", () =>{
-        DialogModal.close();
+    // Add List Button
+    document.getElementById("AddList").addEventListener("click", () =>{
+        let input = IsEmpty(ItemListInput.value); // Get input
+        if (input){PopUpWarning("Cannot proceed (No Input For List Name)");return} // Check if empty (returns if true)
+        CreateLocalStorageTodoList(ItemListInput.value); // Create Object
     })
 
-
+    // CLose Modal Button
+    document.getElementById("ModalCloseButton").addEventListener("click", () =>{
+        document.getElementById("ModalDialogWarning").close();
+    })
 }
 
 function Bootstrap(){

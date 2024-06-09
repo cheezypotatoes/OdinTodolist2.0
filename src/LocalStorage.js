@@ -1,12 +1,12 @@
 
 
 // TODO: OTHER ATTRIBUTE CAN BE ADDED ON THE SETTINGS
-function CreateNewTodoList(name){
+function CreateLocalStorageTodoList(name){
     let TodoListObject = new Object();
     TodoListObject.TodoArray = [];
-    TodoListObject.dueDate = dueDate;
-    TodoListObject.description = description;
-    TodoListObject.priority = priority;
+    TodoListObject.dueDate = "";
+    TodoListObject.description = "";
+    TodoListObject.priority = "";
 
     localStorage.setItem(name, JSON.stringify(TodoListObject));
     console.log(`Successfully stored ${name}`);
@@ -19,3 +19,5 @@ function printLocalStorage() {
         console.log(`Key: ${key}, Value: ${value}`);
     }
 }
+
+export {CreateLocalStorageTodoList}
