@@ -12,4 +12,9 @@ function PopUpWarning(message){
     DialogModal.showModal();
 }
 
-export {IsEmpty, PopUpWarning}
+function TextLimiter(text) {
+    return text.length > 15;
+}
+
+
+export {IsEmpty, PopUpWarning, TextLimiter}

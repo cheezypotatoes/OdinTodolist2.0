@@ -1,3 +1,4 @@
+import {CreateTodoList} from "./barrel"
 
 
 // TODO: OTHER ATTRIBUTE CAN BE ADDED ON THE SETTINGS
@@ -10,6 +11,8 @@ function CreateLocalStorageTodoList(name){
 
     localStorage.setItem(name, JSON.stringify(TodoListObject));
     console.log(`Successfully stored ${name}`);
+
+    CreateTodoList(name); // Adds the new list (instead of resetting all)
 }
 
 function printLocalStorage() {

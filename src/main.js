@@ -1,5 +1,5 @@
 import "./main.css";
-import { CreateTodoList, PopUpWarning, IsEmpty, CreateLocalStorageTodoList, GenerateAllTodoList, printLocalStorage} from "./barrel";
+import { TextLimiter, PopUpWarning, IsEmpty, CreateLocalStorageTodoList, GenerateAllTodoList, printLocalStorage} from "./barrel";
 
 
 const ItemListInput = document.getElementById("itemInput")
@@ -9,8 +9,9 @@ let CurrentlySelectedListName = "";
 function ButtonFunctionality(){
     // Add Item
     document.getElementById("AddItem").addEventListener("click", () =>{
-        let input = IsEmpty(ItemListInput.value); // Get input
-        if (input){PopUpWarning("Cannot proceed (No Input For Item Name)");return} // Check if empty (returns if true)
+        if (IsEmpty(ItemListInput.value)){PopUpWarning("Cannot proceed (No Input For Item Name)");return} // Check if empty (returns if true)
+        else if (TextLimiter(ItemListInput.value)){PopUpWarning("Input must be 15 letters or lower"); return} // Check if input is less than 16 letters
+
         console.log("Good to go");
 
         // TODO: REMOVE AFTER
@@ -19,12 +20,13 @@ function ButtonFunctionality(){
 
     // Add List Button
     document.getElementById("AddList").addEventListener("click", () =>{
-        let input = IsEmpty(ItemListInput.value); // Get input
-        if (input){PopUpWarning("Cannot proceed (No Input For List Name)");return} // Check if empty (returns if true)
+        if (IsEmpty(ItemListInput.value)){PopUpWarning("Cannot proceed (No Input For List Name)");return} // Check if empty (returns if true)
+        else if (TextLimiter(ItemListInput.value)){PopUpWarning("Input must be 15 letters or lower"); return} // Check if input is less than 16 letters
+
         CreateLocalStorageTodoList(ItemListInput.value); // Create Object
     })
 
-    // CLose Modal Button
+    // Close Modal Button
     document.getElementById("ModalCloseButton").addEventListener("click", () =>{
         document.getElementById("ModalDialogWarning").close();
     })
@@ -41,6 +43,7 @@ function Bootstrap(){
     ButtonFunctionality();
     GenerateAllTodoList();
 }
+
 
 Bootstrap();
 
