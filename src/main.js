@@ -1,5 +1,7 @@
 import "./main.css";
-import { TextLimiter, PopUpWarning, IsEmpty, CreateLocalStorageTodoList, GenerateAllTodoList, printLocalStorage, CheckIfDuplicate} from "./barrel";
+import { TextLimiter, PopUpWarning, IsEmpty, 
+    CreateLocalStorageTodoList, GenerateAllTodoList, printLocalStorage, 
+    CheckIfDuplicate, ClearInput} from "./barrel";
 
 
 const ItemListInput = document.getElementById("itemInput")
@@ -15,6 +17,7 @@ function ButtonFunctionality(){
         else if (TextLimiter(ItemListInput.value)){PopUpWarning("Input must be 8 letters or lower"); return} // Check if input is less than 16 letters
 
         console.log("Good to go");
+        ClearInput(); // Clear Input
     })
 
     // Add List Button
@@ -24,6 +27,7 @@ function ButtonFunctionality(){
         else if (CheckIfDuplicate(ItemListInput.value)){PopUpWarning("Duplicate name found"); return} // Check if duplicate
 
         CreateLocalStorageTodoList(ItemListInput.value); // Create Object
+        ClearInput(); // Clear Input
     })
 
     // Close Modal Warning Button

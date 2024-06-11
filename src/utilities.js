@@ -20,5 +20,9 @@ function ShowConfigModal(){
     document.getElementById("ConfigurationModal").showModal();
 }
 
+function ClearInput(){
+    document.getElementById("itemInput").value = "";
+}
 
-export {IsEmpty, PopUpWarning, TextLimiter, ShowConfigModal}
+
+export {IsEmpty, PopUpWarning, TextLimiter, ShowConfigModal, ClearInput}
