@@ -1,13 +1,13 @@
-import {CreateTodoList} from "./barrel"
+import {CreateTodoList, IsEmpty} from "./barrel"
 
 
 // TODO: OTHER ATTRIBUTE CAN BE ADDED ON THE SETTINGS
 function CreateLocalStorageTodoList(name){
     let TodoListObject = new Object();
     TodoListObject.TodoArray = [];
-    TodoListObject.dueDate = "";
-    TodoListObject.description = "";
-    TodoListObject.priority = "";
+    TodoListObject.dueDate = "Sample Date";
+    TodoListObject.description = "Sample Description";
+    TodoListObject.priority = "low";
 
     localStorage.setItem(name, JSON.stringify(TodoListObject));
     console.log(`Successfully stored ${name}`);
@@ -33,4 +33,14 @@ function CheckIfDuplicate(name){
     } else {return true}
 }
 
-export {CreateLocalStorageTodoList, printLocalStorage, DeleteTodoList, CheckIfDuplicate}
+function AddProperties(ListName, NewDueDate, NewDescription, NewPriority){
+    let List = JSON.parse(localStorage.getItem(ListName));
+
+    if (!IsEmpty(NewDueDate)){List.dueDate = NewDueDate;}
+    if (!IsEmpty(NewDescription)){List.description = NewDescription;}
+    if (NewPriority !== "Empty"){List.priority = NewPriority}
+
+    localStorage.setItem(ListName, JSON.stringify(List));
+}
+
+export {CreateLocalStorageTodoList, printLocalStorage, DeleteTodoList, CheckIfDuplicate, AddProperties}

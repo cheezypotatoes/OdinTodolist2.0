@@ -207,3 +207,7 @@ html, body {
     background-color: rgba(197, 222, 242, 0.8);
 }
 
+
+.smallText{
+    font-size: small;
+}

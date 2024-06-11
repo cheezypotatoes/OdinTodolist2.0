@@ -1,12 +1,14 @@
 import "./main.css";
 import { TextLimiter, PopUpWarning, IsEmpty, 
     CreateLocalStorageTodoList, GenerateAllTodoList, printLocalStorage, 
-    CheckIfDuplicate, ClearInput} from "./barrel";
+    CheckIfDuplicate, ClearInput, AddProperties, ReturnPriority, ClearConfigInputs} from "./barrel";
 
 
 const ItemListInput = document.getElementById("itemInput")
 let SelectionIdentifier = document.getElementById("SelectionIdentifier");
 let CurrentlySelectedListName = "";
+const dueDateText = document.getElementById("DueDateText");
+const descriptionText = document.getElementById("DescriptionText");
 
 function ButtonFunctionality(){
     // Add Item
@@ -42,20 +44,28 @@ function ButtonFunctionality(){
 
     // Save Configuration Button
     document.getElementById("saveButton").addEventListener("click", () =>{
-        console.log("SAVED");
+        let Description = document.getElementById("DescriptionInput").value;
+        let DueDate = document.getElementById("DueDate").value;
+        let priority = ReturnPriority();
+        AddProperties(CurrentlySelectedListName, DueDate, Description, priority);
         document.getElementById("ConfigurationModal").close();
+        ClearConfigInputs(); // Clear inputs of the config modal
+        ListSelected(CurrentlySelectedListName); // Update the details
     })
 }
 
 function ListSelected(ListName){
     CurrentlySelectedListName = ListName; // A way to identify what it selected (used for later)
     SelectionIdentifier.innerText = `Currently Selecting: ${ListName}`;
-    console.log(`SELECTED ${CurrentlySelectedListName}`)
+    dueDateText.innerText = `Due Date: ${JSON.parse(localStorage.getItem(ListName)).dueDate}`;
+    descriptionText.innerText = `Description: ${JSON.parse(localStorage.getItem(ListName)).description}`;
 }
 
 function ListSelectedNull(){
     CurrentlySelectedListName = "";
     SelectionIdentifier.innerText = `Currently Selecting:`;
+    dueDateText.innerText = "Due Date:";
+    descriptionText.innerText = "Description:";
 }
 
 
