@@ -15,6 +15,10 @@ function CreateLocalStorageTodoList(name){
     CreateTodoList(name); // Adds the new list (instead of resetting all)
 }
 
+function DeleteTodoList(name){
+    localStorage.removeItem(name);
+}
+
 function printLocalStorage() {
     for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i);
@@ -23,4 +27,10 @@ function printLocalStorage() {
     }
 }
 
-export {CreateLocalStorageTodoList, printLocalStorage}
+function CheckIfDuplicate(name){
+    if (localStorage.getItem(name) === null){
+        return false
+    } else {return true}
+}
+
+export {CreateLocalStorageTodoList, printLocalStorage, DeleteTodoList, CheckIfDuplicate}

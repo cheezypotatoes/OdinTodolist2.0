@@ -13,7 +13,7 @@ function PopUpWarning(message){
 }
 
 function TextLimiter(text) {
-    return text.length > 15;
+    return text.length > 8;
 }
 
 
