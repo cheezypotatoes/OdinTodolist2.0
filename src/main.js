@@ -26,9 +26,20 @@ function ButtonFunctionality(){
         CreateLocalStorageTodoList(ItemListInput.value); // Create Object
     })
 
-    // Close Modal Button
+    // Close Modal Warning Button
     document.getElementById("ModalCloseButton").addEventListener("click", () =>{
         document.getElementById("ModalDialogWarning").close();
+    })
+
+    // Close Modal Config Button
+    document.getElementById("closeButton").addEventListener("click", () =>{
+        document.getElementById("ConfigurationModal").close();
+    })
+
+    // Save Configuration Button
+    document.getElementById("saveButton").addEventListener("click", () =>{
+        console.log("SAVED");
+        document.getElementById("ConfigurationModal").close();
     })
 }
 

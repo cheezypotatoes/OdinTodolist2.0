@@ -11,6 +11,34 @@
         <button id="ModalCloseButton">Close</button>
     </dialog>
 
+    <!-- Input Form For Configuration -->
+    <dialog id="ConfigurationModal" class="modal">
+        <form method="dialog">
+            <label for="DescriptionInput">Description:</label>
+            <input type="text" id="DescriptionInput" name="description">
+
+            <label for="DueDate">DueDate:</label>
+            <input type="date" id="DueDate" name="dueDate">
+
+            <label for="descriptionInput">Description:</label>
+            <input type="text" id="descriptionInput" name="description">
+
+            <p>Priority</p>
+            <input type="radio" name="priority" value="low" id="priorityLow">
+            <label for="priorityLow">Low</label><br>
+            
+            <input type="radio" name="priority" value="medium" id="priorityMedium">
+            <label for="priorityMedium">Medium</label><br>
+            
+            <input type="radio" name="priority" value="high" id="priorityHigh">
+            <label for="priorityHigh">High</label><br>
+
+            <div class="ConfigButtons">
+                <button id="saveButton">Save</button>
+                <button id="closeButton">Close</button>
+            </div>
+        </form>
+    </dialog>
 
 
     <div id="Container">

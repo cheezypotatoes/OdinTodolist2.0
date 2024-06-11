@@ -16,5 +16,9 @@ function TextLimiter(text) {
     return text.length > 8;
 }
 
+function ShowConfigModal(){
+    document.getElementById("ConfigurationModal").showModal();
+}
 
-export {IsEmpty, PopUpWarning, TextLimiter}
+
+export {IsEmpty, PopUpWarning, TextLimiter, ShowConfigModal}

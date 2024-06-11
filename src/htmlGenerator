@@ -1,4 +1,4 @@
-import { ListSelected, DeleteTodoList, ListSelectedNull} from "./barrel";
+import { ListSelected, DeleteTodoList, ListSelectedNull, ShowConfigModal} from "./barrel";
 
 const ListsDisplay = document.getElementById("ListsDisplay");
 
@@ -10,13 +10,12 @@ function CreateTodoList(name) {
     let configureList = Object.assign(document.createElement("button"), { innerText: "Configure", className: "ConfigureListButton" });
     configureList.addEventListener("click", () =>{
         console.log("Configuration");
+        ShowConfigModal();
         ListSelected(name);
     })
 
     let DeleteButton = Object.assign(document.createElement("button"), { innerText: "Delete", className: "DeleteButton" });
     DeleteButton.addEventListener("click", () =>{
-        console.log("Delete");
-
         // Removing its existence
         ListSelectedNull(); // Making selected empty again
         DeleteTodoList(name)
