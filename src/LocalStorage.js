@@ -43,4 +43,8 @@ function AddProperties(ListName, NewDueDate, NewDescription, NewPriority){
     localStorage.setItem(ListName, JSON.stringify(List));
 }
 
-export {CreateLocalStorageTodoList, printLocalStorage, DeleteTodoList, CheckIfDuplicate, AddProperties}
+function ReturnObjectPriority(ListName){
+    return JSON.parse(localStorage.getItem(ListName)).priority;
+}
+
+export {CreateLocalStorageTodoList, printLocalStorage, DeleteTodoList, CheckIfDuplicate, AddProperties, ReturnObjectPriority}

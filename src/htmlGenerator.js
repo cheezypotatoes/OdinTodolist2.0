@@ -1,4 +1,4 @@
-import { ListSelected, DeleteTodoList, ListSelectedNull, ShowConfigModal} from "./barrel";
+import { ListSelected, DeleteTodoList, ListSelectedNull, ShowConfigModal, ReturnObjectPriority} from "./barrel";
 
 const ListsDisplay = document.getElementById("ListsDisplay");
 

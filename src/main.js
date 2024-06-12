@@ -1,7 +1,8 @@
 import "./main.css";
 import { TextLimiter, PopUpWarning, IsEmpty, 
     CreateLocalStorageTodoList, GenerateAllTodoList, printLocalStorage, 
-    CheckIfDuplicate, ClearInput, AddProperties, ReturnPriority, ClearConfigInputs} from "./barrel";
+    CheckIfDuplicate, ClearInput, AddProperties, ReturnPriority,
+    ClearConfigInputs, ReturnObjectPriority} from "./barrel";
 
 
 const ItemListInput = document.getElementById("itemInput")
@@ -55,17 +56,25 @@ function ButtonFunctionality(){
 }
 
 function ListSelected(ListName){
+    let colorPriority = ReturnObjectPriority(ListName); // Getting the priority for color coding the text
     CurrentlySelectedListName = ListName; // A way to identify what it selected (used for later)
-    SelectionIdentifier.innerText = `Currently Selecting: ${ListName}`;
+    SelectionIdentifier.innerText = `Currently Selecting: ${ListName}\n Priority: ${colorPriority}`;
     dueDateText.innerText = `Due Date: ${JSON.parse(localStorage.getItem(ListName)).dueDate}`;
     descriptionText.innerText = `Description: ${JSON.parse(localStorage.getItem(ListName)).description}`;
+
+    // Changing its colors depending on the priority
+    if (colorPriority === "low"){SelectionIdentifier.style.color = "green";}
+    else if (colorPriority === "medium"){SelectionIdentifier.style.color = "yellow";}
+    else if (colorPriority === "high"){SelectionIdentifier.style.color = "red";}
 }
 
 function ListSelectedNull(){
+    // Resets everything after deleting a list
     CurrentlySelectedListName = "";
     SelectionIdentifier.innerText = `Currently Selecting:`;
     dueDateText.innerText = "Due Date:";
     descriptionText.innerText = "Description:";
+    SelectionIdentifier.style.color = "white";
 }
 
 
