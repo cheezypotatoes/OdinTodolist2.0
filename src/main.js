@@ -14,11 +14,11 @@ const descriptionText = document.getElementById("DescriptionText");
 function ButtonFunctionality(){
     // Add Item
     document.getElementById("AddItem").addEventListener("click", () =>{
-         // TODO: REMOVE AFTER
+            // TODO: REMOVE AFTER
         printLocalStorage();
         if (IsEmpty(ItemListInput.value)){PopUpWarning("Cannot proceed (No Input For Item Name)");return} // Check if empty (returns if true)
         else if (TextLimiter(ItemListInput.value)){PopUpWarning("Input must be 8 letters or lower"); return} // Check if input is less than 16 letters
-
+        else if (IsEmpty(CurrentlySelectedListName)){PopUpWarning("Please select a list"); return} // Check if no list selected
         console.log("Good to go");
         ClearInput(); // Clear Input
     })
