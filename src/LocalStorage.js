@@ -47,4 +47,13 @@ function ReturnObjectPriority(ListName){
     return JSON.parse(localStorage.getItem(ListName)).priority;
 }
 
-export {CreateLocalStorageTodoList, printLocalStorage, DeleteTodoList, CheckIfDuplicate, AddProperties, ReturnObjectPriority}
+// Add item to list
+function AddItemToList(ListName, ItemName){
+    let List = JSON.parse(localStorage.getItem(ListName));
+    List.TodoArray.push(ItemName);
+    localStorage.setItem(ListName, JSON.stringify(List));
+}
+
+export {CreateLocalStorageTodoList, printLocalStorage, DeleteTodoList,
+    CheckIfDuplicate, AddProperties, ReturnObjectPriority,
+    AddItemToList}
