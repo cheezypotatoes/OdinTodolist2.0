@@ -11,8 +11,8 @@ function PopUpWarning(message){
     DialogModal.showModal();
 }
 
-function TextLimiter(text) {
-    return text.length > 8;
+function TextLimiter(text, letterLimit) {
+    return text.length > letterLimit;
 }
 
 function ShowConfigModal(){
