@@ -1,4 +1,4 @@
-import {CreateTodoList, IsEmpty} from "./barrel"
+import {CreateTodoList, IsEmpty, CreateListItem} from "./barrel"
 
 
 // TODO: OTHER ATTRIBUTE CAN BE ADDED ON THE SETTINGS
@@ -56,6 +56,8 @@ function AddItemToList(ListName, ItemName){
     let List = JSON.parse(localStorage.getItem(ListName));
     List.TodoArray.push(ItemName);
     localStorage.setItem(ListName, JSON.stringify(List));
+
+    CreateListItem(ItemName); // Add the item to display
 }
 
 export {CreateLocalStorageTodoList, printLocalStorage, DeleteTodoList,

@@ -1,4 +1,4 @@
-import { ListSelected, DeleteTodoList, ListSelectedNull, ShowConfigModal, ReturnObjectPriority, ReturnObjectTodoArray} from "./barrel";
+import { ListSelected, DeleteTodoList, ListSelectedNull, ShowConfigModal, ReturnObjectTodoArray} from "./barrel";
 
 const ListsDisplay = document.getElementById("ListsDisplay");
 const ItemDisplay = document.getElementById("ItemDisplay");
@@ -24,6 +24,7 @@ function CreateTodoList(name) {
         ListSelectedNull(); // Making selected empty again
         DeleteTodoList(name)
         TodoList.remove();
+        ClearCurrentlyShownItems(); // Clear all item shown
     })
 
     TodoList.append(configureList);
@@ -38,7 +39,7 @@ function CreateListItem(ItemName){
         onclick: () => { ItemName }
     });
 
-    let DeleteItemButton = Object.assign(document.createElement("button"), {innerText: "BUTTON", className: "ItemDeleteButton"})
+    let DeleteItemButton = Object.assign(document.createElement("button"), {innerText: "Delete", className: "DeleteButton"})
 
     ItemDiv.appendChild(Item);
     ItemDiv.appendChild(DeleteItemButton);
@@ -50,6 +51,10 @@ function GenerateAllItems(ListName){
     for (let i = 0; i < ListArray.length; i++){
         CreateListItem(ListArray[i]);
     }
+}
+
+function ClearCurrentlyShownItems(){
+    ItemDisplay.innerHTML = "";
 }
 
 function GenerateAllTodoList(){
@@ -64,4 +69,4 @@ function GenerateAllTodoList(){
     }
 }
 
-export {CreateTodoList, GenerateAllTodoList, GenerateAllItems};
+export {CreateTodoList, GenerateAllTodoList, GenerateAllItems, ClearCurrentlyShownItems, CreateListItem};

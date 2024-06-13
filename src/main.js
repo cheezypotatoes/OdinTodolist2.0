@@ -2,7 +2,8 @@ import "./main.css";
 import { TextLimiter, PopUpWarning, IsEmpty, 
     CreateLocalStorageTodoList, GenerateAllTodoList, printLocalStorage, 
     CheckIfDuplicate, ClearInput, AddProperties, ReturnPriority,
-    ClearConfigInputs, ReturnObjectPriority, AddItemToList} from "./barrel";
+    ClearConfigInputs, ReturnObjectPriority, AddItemToList,
+    ClearCurrentlyShownItems} from "./barrel";
 
 
 const ItemListInput = document.getElementById("itemInput")
@@ -64,6 +65,8 @@ function ListSelected(ListName){
     if (colorPriority === "low"){SelectionIdentifier.style.color = "green";}
     else if (colorPriority === "medium"){SelectionIdentifier.style.color = "yellow";}
     else if (colorPriority === "high"){SelectionIdentifier.style.color = "red";}
+
+    ClearCurrentlyShownItems(); // Clear every item when moving pressing a different list
 }
 
 function ListSelectedNull(){
