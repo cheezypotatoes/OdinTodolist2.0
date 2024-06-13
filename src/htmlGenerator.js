@@ -1,14 +1,18 @@
-import { ListSelected, DeleteTodoList, ListSelectedNull, ShowConfigModal, ReturnObjectPriority} from "./barrel";
+import { ListSelected, DeleteTodoList, ListSelectedNull, ShowConfigModal, ReturnObjectPriority, ReturnObjectTodoArray} from "./barrel";
 
 const ListsDisplay = document.getElementById("ListsDisplay");
+const ItemDisplay = document.getElementById("ItemDisplay");
 
 function CreateTodoList(name) {
     let TodoList = document.createElement("div");
     TodoList.className = "TodoList";
-    TodoList.appendChild(Object.assign(document.createElement("h1"), { innerText: name , onclick: () => {ListSelected(name)}})); // Title
+    TodoList.appendChild(Object.assign(document.createElement("h1"), { innerText: name ,
+        onclick: () => {ListSelected(name);
+        GenerateAllItems(name);}})); // Title
 
     let configureList = Object.assign(document.createElement("button"), { innerText: "Configure", className: "ConfigureListButton" });
     configureList.addEventListener("click", () =>{
+        GenerateAllItems(name);
         console.log("Configuration");
         ShowConfigModal();
         ListSelected(name);
@@ -27,6 +31,27 @@ function CreateTodoList(name) {
     ListsDisplay.appendChild(TodoList);
 }
 
+function CreateListItem(ItemName){
+    let ItemDiv = Object.assign(document.createElement("div"), { className: "ItemDiv" });
+    let Item = Object.assign(document.createElement("h1"), {
+        innerText: ItemName,
+        onclick: () => { ItemName }
+    });
+
+    let DeleteItemButton = Object.assign(document.createElement("button"), {innerText: "BUTTON", className: "ItemDeleteButton"})
+
+    ItemDiv.appendChild(Item);
+    ItemDiv.appendChild(DeleteItemButton);
+    ItemDisplay.appendChild(ItemDiv);
+}
+
+function GenerateAllItems(ListName){
+    let ListArray = ReturnObjectTodoArray(ListName)
+    for (let i = 0; i < ListArray.length; i++){
+        CreateListItem(ListArray[i]);
+    }
+}
+
 function GenerateAllTodoList(){
     for (let i = 0; i < localStorage.length; i++) {
         // Weird solution to deal with object in local storage causes by extension
@@ -39,4 +64,4 @@ function GenerateAllTodoList(){
     }
 }
 
-export {CreateTodoList, GenerateAllTodoList};
+export {CreateTodoList, GenerateAllTodoList, GenerateAllItems};

@@ -211,3 +211,24 @@ html, body {
 .smallText{
     font-size: small;
 }
+
+.DetailContainers{
+    width: 100%;
+    height: 300px;
+}
+
+.ItemDiv {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px; /* Adjust the gap between items as needed */
+}
+
+.ItemDeleteButton{
+    width: 100px;
+    height: 100%;
+}
+
+.ItemDiv > :first-child{
+    align-self: center;
+}
+
