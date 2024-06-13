@@ -60,6 +60,12 @@ function AddItemToList(ListName, ItemName){
     CreateListItem(ItemName); // Add the item to display
 }
 
+function DeleteSpecificItem(ItemName, ListName){
+    let originalObject = JSON.parse(localStorage.getItem(ListName));
+    originalObject.TodoArray = originalObject.TodoArray.filter(item => item !== ItemName);
+    localStorage.setItem(ListName, JSON.stringify(originalObject));
+}
+
 export {CreateLocalStorageTodoList, printLocalStorage, DeleteTodoList,
     CheckIfDuplicate, AddProperties, ReturnObjectPriority,
-    AddItemToList, ReturnObjectTodoArray}
+    AddItemToList, ReturnObjectTodoArray, DeleteSpecificItem}

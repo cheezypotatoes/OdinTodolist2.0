@@ -1,4 +1,4 @@
-import { ListSelected, DeleteTodoList, ListSelectedNull, ShowConfigModal, ReturnObjectTodoArray} from "./barrel";
+import { ListSelected, DeleteTodoList, ListSelectedNull, ShowConfigModal, ReturnObjectTodoArray, ReturnSelectedListName, DeleteSpecificItem} from "./barrel";
 
 const ListsDisplay = document.getElementById("ListsDisplay");
 const ItemDisplay = document.getElementById("ItemDisplay");
@@ -40,6 +40,10 @@ function CreateListItem(ItemName){
     });
 
     let DeleteItemButton = Object.assign(document.createElement("button"), {innerText: "Delete", className: "DeleteButton"})
+    DeleteItemButton.addEventListener("click", () =>{
+        DeleteSpecificItem(ItemName, ReturnSelectedListName()); // Remove the specific item from the local storage
+        ItemDiv.remove(); // Remove it from the display
+    })
 
     ItemDiv.appendChild(Item);
     ItemDiv.appendChild(DeleteItemButton);

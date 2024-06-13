@@ -1,11 +1,11 @@
 import { CreateTodoList, GenerateAllTodoList, GenerateAllItems, ClearCurrentlyShownItems, CreateListItem} from "./htmlGenerator.js";
 import { PopUpWarning, IsEmpty, TextLimiter, ShowConfigModal, ClearInput, ReturnPriority, ClearConfigInputs} from "./utilities";
-import { CreateLocalStorageTodoList, printLocalStorage, DeleteTodoList, CheckIfDuplicate, AddProperties, ReturnObjectPriority, AddItemToList, ReturnObjectTodoArray} from "./LocalStorage";
-import { ListSelected, ListSelectedNull} from "./main";
+import { CreateLocalStorageTodoList, printLocalStorage, DeleteTodoList, CheckIfDuplicate, AddProperties, ReturnObjectPriority, AddItemToList, ReturnObjectTodoArray, DeleteSpecificItem} from "./LocalStorage";
+import { ListSelected, ListSelectedNull, ReturnSelectedListName} from "./main";
 
 
 
 export {CreateTodoList, GenerateAllTodoList, GenerateAllItems, ClearCurrentlyShownItems, CreateListItem}
 export {PopUpWarning, IsEmpty, TextLimiter, ShowConfigModal, ClearInput, ReturnPriority, ClearConfigInputs}
-export {CreateLocalStorageTodoList, printLocalStorage, DeleteTodoList, CheckIfDuplicate, AddProperties, ReturnObjectPriority, AddItemToList, ReturnObjectTodoArray}
-export {ListSelected, ListSelectedNull}
+export {CreateLocalStorageTodoList, printLocalStorage, DeleteTodoList, CheckIfDuplicate, AddProperties, ReturnObjectPriority, AddItemToList, ReturnObjectTodoArray, DeleteSpecificItem}
+export {ListSelected, ListSelectedNull, ReturnSelectedListName}

@@ -78,6 +78,10 @@ function ListSelectedNull(){
     SelectionIdentifier.style.color = "white";
 }
 
+function ReturnSelectedListName(){
+    return CurrentlySelectedListName;
+}
+
 
 function Bootstrap(){
     ButtonFunctionality();
@@ -88,6 +92,6 @@ function Bootstrap(){
 Bootstrap();
 
 
-export {ListSelected, ListSelectedNull}
+export {ListSelected, ListSelectedNull, ReturnSelectedListName}
 
 
